@@ -1,0 +1,3 @@
+Flask-APIM/.venv/
+Flask-APIM/cred.json
+Airflow-Dags/PACKAGE/DATALAKE/cred.json
