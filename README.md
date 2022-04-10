@@ -6,20 +6,23 @@
 - Microsoft SQL Server 19
 - Python 3.8
 
-## INSTALLATION AIRFLOW (ETL)
+## INSTALL AIRFLOW (ETL)
 
 - Install Apache Airflow locally (Tutorial: https://youtu.be/aTaytcxy2Ck)
 - Copy the resources from Airflow-Dags to directory of Dags of your Apache Airflow
 
-## INSTALLATION AIRFLOW (ETL)
+## INSTALL DATABASE
 
 - Install Microsoft SQL Server 19
-- Create three DB
-- INT_DATALAKE_BRONZE
-- INT_DATALAKE_SILVER
-- INT_DATALAKE_GOLD
+- Create three empty DB
+  - INT_DATALAKE_BRONZE
+  - INT_DATALAKE_SILVER
+  - INT_DATALAKE_GOLD
 
-## INSTALLATION FLASK
+## INTALL FLASK APP
 
+- Install Python 3.8
+- Create a virtual Env
 - Copy the resources from Flask-APIM to local directory
+- Excute the virtual env
 - Run pip install requeriments.txt
