@@ -1,4 +1,10 @@
-# Airflow-ETL-Datalake
+## Airflow-ETL-Datalake
+
+# Software required
+
+- Apache Airflow
+- Microsoft SQL Server 19
+- Python 3.8
 
 # INSTALLATION AIRFLOW (ETL)
 
