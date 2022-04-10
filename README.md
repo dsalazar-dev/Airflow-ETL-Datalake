@@ -8,9 +8,12 @@
 
 ## INSTALLATION AIRFLOW (ETL)
 
-- Install Apache Airflow locally
+- Install Apache Airflow locally (Tutorial: https://youtu.be/aTaytcxy2Ck)
 - Copy the resources from Airflow-Dags to directory of Dags of your Apache Airflow
-- Create a SQL Server BD
+
+## INSTALLATION AIRFLOW (ETL)
+
+- Install Microsoft SQL Server 19
 - Create three DB
 - INT_DATALAKE_BRONZE
 - INT_DATALAKE_SILVER
