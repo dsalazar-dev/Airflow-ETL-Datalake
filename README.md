@@ -13,6 +13,7 @@
   - INT_DATALAKE_BRONZE
   - INT_DATALAKE_SILVER
   - INT_DATALAKE_GOLD
+- In the database INT_DATALAKE_GOLD create the stored procedures located on the folder SQL
 
 ## INSTALL AIRFLOW (ETL)
 
