@@ -17,8 +17,8 @@
 ## INSTALL AIRFLOW (ETL)
 
 - Install Apache Airflow locally (Tutorial: https://youtu.be/aTaytcxy2Ck)
-- Copy the resources from Airflow-Dags to directory of Dags of your Apache Airflow
 - Start Docker and run Apache Airflow
+- Copy the resources from Airflow-Dags to directory of Dags and refresh Apache Airflow
 - Create a cred.json file on PACKAGE\DATALAKE\ with the credentials of the DB 
   Ex. 
     {
