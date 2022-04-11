@@ -1,3 +1,7 @@
+-- INT_DATALAKE_SILVER
+
+CREATE PROCEDURE dbo.PRC_GET_SQL1
+AS 
 SELECT 
 	TOP 1
 	j.datasource, 

@@ -29,6 +29,7 @@ def LOG(soure_dir, status, message):
 def TL_TO_SILVER(**kwargs):
     # GET PARAMETERS
     database_source = kwargs['layer_source']
+    table_source = kwargs['table_source']
     database = kwargs['layer']
     table = kwargs['table']
     source_dir = kwargs['source_dir']
@@ -41,7 +42,7 @@ def TL_TO_SILVER(**kwargs):
         #LOAD DATA FROM SILVER LAYER
         chunk_size = 50000
 
-        for chunk in pd.read_sql_table(table, engine_source, chunksize = chunk_size):
+        for chunk in pd.read_sql_table(table_source, engine_source, chunksize = chunk_size):
             chunk.to_sql(table, engine, if_exists='append')
 
 

@@ -25,8 +25,8 @@ with DAG(
     default_args = default_args,
 ) as dag:
     
-    dag_el_datalake_bronce = PythonOperator(
-        task_id = 'task_el_datalake_bronze',
+    dag_etl_datalake_bronce = PythonOperator(
+        task_id = 'task_etl_datalake_bronze',
         python_callable = EL_TO_BRONZE,
         op_kwargs = {
             'layer': 'INT_DATALAKE_BRONZE',
@@ -37,27 +37,29 @@ with DAG(
         }
     )
 
-    dag_tl_datalake_silver = PythonOperator(
-        task_id = 'task_tl_datalake_silver',
+    dag_etl_datalake_silver = PythonOperator(
+        task_id = 'task_etl_datalake_silver',
         python_callable = TL_TO_SILVER,
         op_kwargs = {
             'layer_source': 'INT_DATALAKE_BRONZE',
+            'table_source': 'TBL_RAW_DATA',
             'layer': 'INT_DATALAKE_SILVER',
             'table': 'TBL_REFINED_DATA',
             'source_dir' : CUR_DIR,
         }
     )
 
-    dag_tl_datalake_gold = PythonOperator(
-        task_id = 'task_tl_datalake_gold',
+    dag_etl_datalake_gold = PythonOperator(
+        task_id = 'task_etl_datalake_gold',
         python_callable = TL_TO_GOLD,
         op_kwargs = {
             'layer_source': 'INT_DATALAKE_SILVER',
+            'table_source': 'TBL_REFINED_DATA',
             'layer': 'INT_DATALAKE_GOLD',
             'table': 'TBL_AGG_DATA',
             'source_dir' : CUR_DIR,
         }
     )
 
-    dag_el_datalake_bronce >> dag_tl_datalake_silver >> dag_tl_datalake_gold
+    dag_etl_datalake_bronce >> dag_etl_datalake_silver >> dag_etl_datalake_gold
     

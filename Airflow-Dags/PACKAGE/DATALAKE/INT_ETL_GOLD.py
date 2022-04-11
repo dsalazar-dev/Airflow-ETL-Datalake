@@ -20,6 +20,7 @@ def LOG(engine, status, message):
 def TL_TO_GOLD(**kwargs):
     # GET PARAMETERS
     database_source = kwargs['layer_source']
+    table_source = kwargs['table_source']
     database = kwargs['layer']
     table = kwargs['table']
     source_dir = kwargs['source_dir']
@@ -32,7 +33,7 @@ def TL_TO_GOLD(**kwargs):
         #M2. Trips with similar origin, destination, and time of day should be grouped together
         chunk_size = 50000
 
-        for chunk in pd.read_sql_table(table, engine_source, chunksize = chunk_size):
+        for chunk in pd.read_sql_table(table_source, engine_source, chunksize = chunk_size):
             chunk["Trips"] = chunk.groupby(["origin_coord", "destination_coord", "datetime"]).grouper.group_info[0] + 1
 
             chunk.drop(["level_0", "index"], axis=1, inplace=True)	
@@ -46,14 +47,14 @@ def TL_TO_GOLD(**kwargs):
         
         #SELECT DATA FROM GOLD LAYER AND PARTITIONS BY REGION
         results = []
-        regions = pd.read_sql_query("SELECT DISTINCT(region) FROM " + table, engine_source)
+        regions = pd.read_sql_query("SELECT DISTINCT(region) FROM " + table_source, engine_source)
 
         for index, row in regions.iterrows():
             chunk_size = 50000
 
             print("SELECT * FROM " + table + " WHERE region = '" + row['region'] + "'")
 
-            for chunk in pd.read_sql_query("SELECT * FROM " + table + " WHERE region = '" + row['region'] + "'", engine_source, chunksize = chunk_size):
+            for chunk in pd.read_sql_query("SELECT * FROM " + table_source + " WHERE region = '" + row['region'] + "'", engine_source, chunksize = chunk_size):
                 chunk.datetime = pd.to_datetime(chunk.datetime)
                 chunk['WeekAvgNumber']=chunk.groupby('region').datetime.diff().dt.days.cumsum().fillna(0)//7
                 chunk['WeekAvgNumber'] = chunk['WeekAvgNumber'].abs()
