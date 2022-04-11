@@ -13,9 +13,9 @@
   - INT_DATALAKE_BRONZE
   - INT_DATALAKE_SILVER
   - INT_DATALAKE_GOLD
-- In the database INT_DATALAKE_GOLD create the stored procedures located on the folder SQL
+- After the installation of Apache Airflow. In the database INT_DATALAKE_GOLD create the stored procedures located on the folder SQL
 
-## INSTALL AIRFLOW (ETL)
+## INSTALL APACHE AIRFLOW (ETL)
 
 - Install Apache Airflow locally (Tutorial: https://youtu.be/aTaytcxy2Ck)
 - Start Docker and run Apache Airflow
