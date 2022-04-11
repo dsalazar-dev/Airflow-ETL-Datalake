@@ -29,7 +29,7 @@
 - Search and run the pipeline DAG_ETL_DATALAKE_001
 
 
-## INTALL FLASK APP
+## INSTALL FLASK APP
 
 - Install Python 3.8
 - Create a virtual Env
@@ -44,3 +44,8 @@
 - Execute the virtual env
 - Run pip install requeriments.txt
 - Exectue the Flask app with "py main.py"
+
+## Connect PBI with Flask
+- Open PBI Desktop (https://www.microsoft.com/en-us/download/details.aspx?id=58494)
+- Open the .pbix send by email
+- Check the source on File -> Options and Setings -> Data source settings
