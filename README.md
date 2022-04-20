@@ -48,5 +48,4 @@
 
 ## Connect PBI with Flask
 - Open PBI Desktop (https://www.microsoft.com/en-us/download/details.aspx?id=58494)
-- Open the .pbix send by email
 - Check the source on File -> Options and Setings -> Data source settings
